@@ -1,270 +1,196 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شاشا نمایشکرنا نمرێن قوتابییان</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
+    <title>شاشا نمرێن قوتابیان - وانەیا عەرەبی</title>
     <style>
-        * { 
-            box-sizing: border-box; 
-            font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif; 
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #0d0e10;
-            color: white;
+            background-color: #0f172a;
+            color: #f8fafc;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden; /* ڕێگری ل دروستبوونا سکرولی */
-            padding: 8px;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
         }
-        .main-card {
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
             width: 100%;
-            height: 100%;
-            background: #1e2022;
-            border: 2px solid #00a896;
-            border-radius: 12px;
-            padding: 10px 12px;
-            box-shadow: 0 0 25px rgba(0, 168, 150, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
-        /* بەشێ سەری (Header) */
-        .header-box {
-            background: #ffc107;
-            color: #000000;
-            border-radius: 8px;
-            padding: 6px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 5px;
+        .header h1 {
+            font-size: 2.8rem;
+            color: #38bdf8;
             margin-bottom: 8px;
-        }
-        .main-title { font-size: 13px; font-weight: 900; }
-        .teacher-badge {
-            background: #000000;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 2px 12px;
-            border-radius: 15px;
-        }
-        .sub-title { font-size: 12px; font-weight: 800; }
-        .blessing { font-size: 12px; font-weight: 900; color: #121315; }
-
-        /* شاشێن مامۆستایان */
-        .teacher-screen {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            height: 100%;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .teacher-screen.active {
-            display: flex;
-            opacity: 1;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
         }
 
-        /* بەشێ تۆڕا ناڤان (3 ستوون بۆ مامۆستا عمر - 4 ستوون بۆ مامۆستا پەروەر) */
-        .grid-container {
-            display: grid;
-            gap: 3px 8px;
-            flex-grow: 1;
-            align-content: center;
+        .header p {
+            font-size: 1.4rem;
+            color: #94a3b8;
         }
 
-        /* شاشا عمر: 3 ستوون */
-        #gridOmar {
-            grid-template-columns: repeat(3, 1fr);
+        .fullscreen-btn {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
         }
 
-        /* شاشا پەروەر: 4 ستوون دا هەمی 101 ناڤ ل ئێک شاشە بووەستن */
-        #gridParwar {
-            grid-template-columns: repeat(4, 1fr);
+        .fullscreen-btn:hover {
+            background-color: #0369a1;
+            transform: scale(1.05);
         }
 
-        .student-row {
-            background: #2a2c30;
-            border: 1px solid #383b42;
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            font-weight: 800;
-            white-space: nowrap;
+        .table-container {
+            width: 95%;
+            max-width: 1200px;
+            background-color: #1e293b;
+            border-radius: 12px;
             overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .badge {
-            background: #00bfa5;
-            color: #000000;
-            padding: 0px 5px;
-            border-radius: 3px;
-            font-size: 9px;
-            font-weight: 900;
-            margin-right: 4px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
-        /* Footer Credits */
-        .developer-footer {
-            margin-top: 6px;
-            padding-top: 4px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            color: #a0a5b1;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
         }
-        .developer-footer strong { color: #00bfa5; }
-        .developer-footer .brand {
-            background: rgba(0, 191, 165, 0.15);
-            color: #00bfa5;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-weight: 800;
+
+        thead {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+
+        th, td {
+            padding: 18px 15px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #1a2332;
+        }
+
+        tbody tr:hover {
+            background-color: #334155;
+            transition: 0.2s;
+        }
+
+        .mark {
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .mark.low {
+            color: #f87171;
         }
     </style>
 </head>
-<body>
+<body onclick="enableFullScreen()">
 
-<div class="main-card">
-    
-    <!-- 1. مامۆستا عمر ئەیوب -->
-    <div class="teacher-screen active" id="screenOmar">
-        <div class="header-box">
-            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم کو نمرێن (98 و 100) ئیناین</div>
-            <div class="teacher-badge">مامۆستا: عمر ئەیوب (عەرەبی)</div>
-            <div class="sub-title">سالا خواندنی 2020 هەتا 2026</div>
-            <div class="blessing">ماشاءالله تبارك الرحمن</div>
-        </div>
-        <div class="grid-container" id="gridOmar"></div>
+    <div class="header">
+        <h1>شاشا نمرێن قوتابیان - وانەیا عەرەبی</h1>
+        <p>نمرێن کورتەیی یێن قوتابییان</p>
     </div>
 
-    <!-- 2. مامۆستا پەروەر -->
-    <div class="teacher-screen" id="screenParwar">
-        <div class="header-box">
-            <div class="main-title">نمرێن قوتابییێن وخودان شیان د بابەتی بیرکاری دا</div>
-            <div class="teacher-badge">مامۆستا: پەروەر (بیرکاری)</div>
-           
-        </div>
-        <div class="grid-container" id="gridParwar"></div>
+    <button class="fullscreen-btn" onclick="toggleFullScreen()">🖥️ شاشا تەمام (Full Screen)</button>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ناوێ قوتابی</th>
+                    <th>وانە</th>
+                    <th>نمرە</th>
+                    <th>ئاست</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>ئەحمەد هەڤال</td>
+                    <td>اللغة العربية</td>
+                    <td class="mark">95</td>
+                    <td>ممتاز</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>سارا ئازاد</td>
+                    <td>اللغة العربية</td>
+                    <td class="mark">88</td>
+                    <td>جيد جداً</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>دیار کاروان</td>
+                    <td>اللغة العربية</td>
+                    <td class="mark">92</td>
+                    <td>ممتاز</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>لانا سەباح</td>
+                    <td>اللغة العربية</td>
+                    <td class="mark">78</td>
+                    <td>جيد</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>یوسف بێوار</td>
+                    <td>اللغة العربية</td>
+                    <td class="mark low">45</td>
+                    <td>راسب</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <!-- Footer -->
-    <div class="developer-footer">
-        <div>گەشەپێدانا سستەمی: <strong>Eryvan Abas</strong></div>
-        <div class="brand">eryvan.dev</div>
-    </div>
+    <script>
+        // هەوڵدان بۆ ئۆتۆماتیکی Fullscreen دەمێ ل سەر هەر جهەکێ شاشێ دا بپێژی
+        function enableFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log("Fullscreen restriction: Click button manually");
+                });
+            }
+        }
 
-</div>
-
-<script>
-    const omarStudents = [
-        {name: "ڤين صالح", score: 100}, {name: "هلات حاجي", score: 100}, {name: "هدى دحام", score: 100},
-        {name: "ايمان صلاح", score: 100}, {name: "محمد حسين", score: 100}, {name: "عبدالله ادريس", score: 100},
-        {name: "فرات جيهاد", score: 100}, {name: "كاوه علي سيڤو", score: 100}, {name: "يوسف خالص شيخو", score: 100},
-        {name: "مهاباد حسين اسماعيل", score: 100}, {name: "ڤين صالح قادر", score: 100}, {name: "پێلان لقمان برو", score: 100},
-        {name: "إكرام عبدالكريم صالح", score: 100}, {name: "محمد علي عبدالكريم", score: 100}, {name: "ره‌وان خالد علي", score: 100},
-        {name: "اية عبدالكريم محمد", score: 100}, {name: "دعاء عبدالكريم محمد", score: 100}, {name: "إسراء حسین عبدالله", score: 100},
-        {name: "الاء اكرام درمان", score: 100}, {name: "رجوان عیسی حمو", score: 100}, {name: "دلمان صلاح عبدالله", score: 100},
-        {name: "مازن خلف سلیمان", score: 100}, {name: "ريان سكفان محمد", score: 100}, {name: "به‌روار معصوم صدیق", score: 100},
-        {name: "سدرة علی عبدالكريم", score: 100}, {name: "هندرین محمدامین یاسین", score: 100}, {name: "سیدرا محمدامین خورشید", score: 100},
-        {name: "ایمان غازی علی", score: 100}, {name: "صائب رشید حسین", score: 100}, {name: "نشوان خلو رفي", score: 100},
-        {name: "حلوة حازم محمد", score: 100}, {name: "سيدرا مجيد عبدالله", score: 100}, {name: "چرا ازاد حسين", score: 100},
-        {name: "اخلاص حسين", score: 100}, {name: "عبدالرحمن عبدالسلام", score: 100}, {name: "نشوان خلو", score: 100},
-        {name: "عبدالباري عبد القادر", score: 98}, {name: "گولين مجدل", score: 98}, {name: "هبه يوسف", score: 98},
-        {name: "سوزان وليد", score: 98}, {name: "عبدالله زبير", score: 98}, {name: "رولان خالد", score: 98},
-        {name: "ڤهمان رمضان", score: 98}, {name: "هلات حاجی رجب", score: 98}, {name: "گلستان ابراهيم اسماعيل", score: 98},
-        {name: "سولين خليل ابراهيم", score: 98}, {name: "جيهان شهاب ابراهيم", score: 98}, {name: "گولجان اسماعيل جانگير", score: 98},
-        {name: "هبه حسن عبدالقادر", score: 98}, {name: "رضوان مشير محمود", score: 98}, {name: "سيلڤانه سليمان ابراهيم", score: 98},
-        {name: "منتهی قدر", score: 98}, {name: "محسن صالح محمد", score: 98}, {name: "فرحان عبدالله محمد", score: 98},
-        {name: "سمدار مهدی موسی", score: 98}, {name: "اندیرا محمد قاسم", score: 98}, {name: "محمد صالح علي", score: 98},
-        {name: "ملاك نزار عبدالرحمن", score: 98}, {name: "رنا عماد عیسی", score: 98}, {name: "هه رجوان سلام كركو", score: 98},
-        {name: "نورا زیاد احمد", score: 98}, {name: "احمد هشیار حمد", score: 98}, {name: "عبدالله رمضان محمد", score: 98},
-        {name: "علي محمد صالح", score: 98}, {name: "یحیی عبدالكریم صالح", score: 98}, {name: "لیا شهاب احمد", score: 98},
-        {name: "چرا ابراهیم جمیل", score: 98}, {name: "نیوار نورالدین رمضان", score: 98}, {name: "نیناف صلاح احمد", score: 98},
-        {name: "عبدالرحمن بدل", score: 98}, {name: "نورا محمد", score: 98}, {name: "ملازم محمد امين", score: 98}
-    ];
-
-    const parwarStudents = [
-        {name: "عثمان عزالدين حسين", score: 100}, {name: "جميل حسام عمر", score: 100}, {name: "أحمد يونس أحمد", score: 100},
-        {name: "ره‌هند محسن عبدالكريم", score: 100}, {name: "متين اسكندر اسكندر", score: 100}, {name: "ئوماد لقمان", score: 100},
-        {name: "محمد صالح", score: 100}, {name: "دلال ماهر", score: 100}, {name: "ده‌ريا فرهاد نظير", score: 100},
-        {name: "سوزان وليد سلمان", score: 100}, {name: "چرا ابراهيم", score: 100}, {name: "جوان نايف", score: 100},
-        {name: "سيدرة علي عبدالكريم", score: 100}, {name: "بارين يونس بلال", score: 100}, {name: "سيلاف يونس بلال", score: 100},
-        {name: "سلڤانه سليمان ابراهيم", score: 100}, {name: "گۆلين مجدل", score: 100}, {name: "رێكه‌فت مهاجر محمد", score: 98},
-        {name: "ريان سكفان محمد", score: 98}, {name: "نیهاد سالم سليمان", score: 98}, {name: "يوسف خالص شيفو", score: 98},
-        {name: "ئێوان كامل فارس", score: 98}, {name: "ره‌وان خالد علي", score: 98}, {name: "عبدالله زبير فاخر", score: 98},
-        {name: "حسين أحمد عباس", score: 98}, {name: "عمر دلدار حميد", score: 98}, {name: "يوسف كريم علي", score: 98},
-        {name: "روپاك سكفان رشيد", score: 98}, {name: "سيدرا مجيد عبدالله", score: 98}, {name: "نازك عبدالحكيم مصطفى", score: 98},
-        {name: "نور جلال سعيد", score: 98}, {name: "هلات كردي صالح", score: 98}, {name: "شيرين حسين صالح", score: 98},
-        {name: "چرا آزاد حسين", score: 98}, {name: "شلير معصوم", score: 98}, {name: "كولين مجدل نوع", score: 98},
-        {name: "بيداء حسين", score: 98}, {name: "سنور حسين", score: 98}, {name: "هودا دهام محمد", score: 98},
-        {name: "جيهان شهاب ابراهيم", score: 98}, {name: "بژار محمد حسن", score: 96}, {name: "محمد علي عبدالكريم", score: 96},
-        {name: "محسن صالح محمد", score: 96}, {name: "نيدەم أديب محمود", score: 96}, {name: "عبدالبارئ عبدالقادر", score: 96},
-        {name: "عبدالعزيز عبدالقادر", score: 96}, {name: "رضوان شعيب معروف", score: 96}, {name: "شيرزاد طارق", score: 96},
-        {name: "حسين موفق", score: 96}, {name: "ريزان سليمان عمر", score: 96}, {name: "رويدة صديق نقيب", score: 96},
-        {name: "ريان عبدالعزيز", score: 96}, {name: "ميديا موسى عبدالله", score: 96}, {name: "هوزان ادريس", score: 96},
-        {name: "ڕۆژێن سلام ناصر", score: 96}, {name: "ايمان صلاح حسين", score: 96}, {name: "لا ڤا طارق", score: 96},
-        {name: "جوان فارس", score: 96}, {name: "هه‌ڤێن صادق", score: 96}, {name: "محمد صبرى محمد", score: 94},
-        {name: "الياس داود اسماعيل", score: 94}, {name: "عادل شوكت", score: 94}, {name: "عمر نجم", score: 94},
-        {name: "عبدالله رمضان محمد", score: 94}, {name: "ردوان شفان حسين", score: 94}, {name: "لولاف عبدالرحمن اسماعيل", score: 94},
-        {name: "كه في اسلام", score: 94}, {name: "نورا دريس سعيد", score: 94}, {name: "رونا هي ادريس", score: 94},
-        {name: "سازان يونس أحمد", score: 94}, {name: "رولان خالد علي", score: 94}, {name: "نارين صادق أمين", score: 94},
-        {name: "دلشير مجيد عبدالله", score: 92}, {name: "امير نزار عبدالرحمن", score: 92}, {name: "به‌روار معصوم صديق", score: 92},
-        {name: "احمد اكرم", score: 92}, {name: "بلند حسن", score: 92}, {name: "فرهاد عبدالله حسن", score: 92},
-        {name: "ڤيا ن امين احمد", score: 92}, {name: "هدى موسى هاجي", score: 92}, {name: "زينب محسن حسين", score: 92},
-        {name: "كرين شيروان احمد", score: 92}, {name: "پيلان لقمان برو", score: 92}, {name: "نورژين شاكر حاجي", score: 92},
-        {name: "نازك عزالدين حسن", score: 92}, {name: "گلستان ابراهيم اسماعيل", score: 92}, {name: "حنان شاكر", score: 92}, {name: "جيمن محمد", score: 92},
-        {name: "رانيا خالد علي", score: 92}, {name: "ئايين صلاح الدين ابراهيم", score: 92}, {name: "سلام عبدالله", score: 92},
-        {name: "اسامة مسعود احمد", score: 90}, {name: "سمير جعفر", score: 90}, {name: "يه يقين نايف عمر", score: 90},
-        {name: "بيداء عبدالله", score: 90}, {name: "نژيان رشيد محمد", score: 90}, {name: "سازان موسى", score: 90},
-        {name: "ڤينێ خالد احمد", score: 90}, {name: "انديرا محمد قاسم", score: 90}, {name: "دلژين عادل صالح", score: 90},
-        {name: "ئاريان لزكين حاجي", score: 90}, {name: "سيروان عبدالحمير", score: 90}
-    ];
-
-    function renderList(students, containerId) {
-        const container = document.getElementById(containerId);
-        students.forEach((st, index) => {
-            container.innerHTML += `
-                <div class="student-row">
-                    <span>${index + 1}. ${st.name}</span>
-                    <span class="badge">${st.score}</span>
-                </div>
-            `;
-        });
-    }
-
-    renderList(omarStudents, 'gridOmar');
-    renderList(parwarStudents, 'gridParwar');
-
-    // 🔄 لڤینا ئۆتۆماتیک ڕاستەوخۆ (هەر 12 چڕکەیان ژ مامۆستایەک بۆ مامۆستایێ دی)
-    const screens = document.querySelectorAll('.teacher-screen');
-    let currentScreen = 0;
-
-    setInterval(() => {
-        screens[currentScreen].classList.remove('active');
-        currentScreen = (currentScreen + 1) % screens.length;
-        screens[currentScreen].classList.add('active');
-    }, 5000); // 12 چڕکە
-</script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
