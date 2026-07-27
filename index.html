@@ -24,7 +24,7 @@
             align-items: center;
             height: 100vh;
             width: 100vw;
-            overflow: hidden; /* ڕێگری ل دروستبوونا سکرولی */
+            overflow: hidden;
             padding: 10px;
         }
         .main-card {
@@ -100,12 +100,12 @@
         .student-row {
             background: #2a2c30;
             border: 1px solid #383b42;
-            padding: 4px 10px; /* قەبارێ خانێ زێدە بوو */
+            padding: 4px 10px;
             border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px; /* قەبارێ پۆنتی مەزنتر بوو */
+            font-size: 12px;
             font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
@@ -116,7 +116,7 @@
             color: #000000;
             padding: 1px 7px;
             border-radius: 4px;
-            font-size: 11px; /* قەبارێ نمرێ مەزنتر بوو */
+            font-size: 11px;
             font-weight: 900;
             margin-right: 6px;
         }
@@ -228,7 +228,7 @@
     renderList(omarStudents, 'gridOmar');
     renderList(parwarStudents, 'gridParwar');
 
-    // 🔄 گوهرینا خۆکارانە یا شاشەیان
+    // گوهرینا خۆکارانە یا شاشەیان (هەر 12 چڕکەیان جارەکێ)
     const screens = document.querySelectorAll('.teacher-screen');
     let currentScreen = 0;
 
@@ -236,7 +236,7 @@
         screens[currentScreen].classList.remove('active');
         currentScreen = (currentScreen + 1) % screens.length;
         screens[currentScreen].classList.add('active');
-    }, 5000);
+    }, 12000);
 </script>
 
 </body>
