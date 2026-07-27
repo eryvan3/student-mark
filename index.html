@@ -25,8 +25,7 @@
             height: 100vh;
             width: 100vw;
             overflow: hidden; /* ڕێگری ل دروستبوونا سکرولی */
-            padding: 8px;
-            cursor: pointer;
+            padding: 10px;
         }
         .main-card {
             width: 100%;
@@ -34,7 +33,7 @@
             background: #1e2022;
             border: 2px solid #00a896;
             border-radius: 12px;
-            padding: 10px 12px;
+            padding: 12px;
             box-shadow: 0 0 25px rgba(0, 168, 150, 0.2);
             display: flex;
             flex-direction: column;
@@ -46,25 +45,25 @@
             background: #ffc107;
             color: #000000;
             border-radius: 8px;
-            padding: 6px 12px;
+            padding: 8px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-bottom: 8px;
+            gap: 6px;
+            margin-bottom: 10px;
         }
-        .main-title { font-size: 13px; font-weight: 900; }
+        .main-title { font-size: 15px; font-weight: 900; }
         .teacher-badge {
             background: #000000;
             color: #ffffff;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 800;
-            padding: 2px 12px;
+            padding: 3px 14px;
             border-radius: 15px;
         }
-        .sub-title { font-size: 12px; font-weight: 800; }
-        .blessing { font-size: 12px; font-weight: 900; color: #121315; }
+        .sub-title { font-size: 13px; font-weight: 800; }
+        .blessing { font-size: 13px; font-weight: 900; color: #121315; }
 
         /* شاشێن مامۆستایان */
         .teacher-screen {
@@ -83,7 +82,7 @@
         /* بەشێ تۆڕا ناڤان */
         .grid-container {
             display: grid;
-            gap: 3px 8px;
+            gap: 5px 10px;
             flex-grow: 1;
             align-content: center;
         }
@@ -93,7 +92,7 @@
             grid-template-columns: repeat(3, 1fr);
         }
 
-        /* شاشا پەروەر: 4 ستوون دا هەمی 101 ناڤ ل ئێک شاشە بووەستن */
+        /* شاشا پەروەر: 4 ستوون */
         #gridParwar {
             grid-template-columns: repeat(4, 1fr);
         }
@@ -101,12 +100,12 @@
         .student-row {
             background: #2a2c30;
             border: 1px solid #383b42;
-            padding: 2px 8px;
-            border-radius: 4px;
+            padding: 4px 10px; /* قەبارێ خانێ زێدە بوو */
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 10px;
+            font-size: 12px; /* قەبارێ پۆنتی مەزنتر بوو */
             font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
@@ -115,35 +114,15 @@
         .badge {
             background: #00bfa5;
             color: #000000;
-            padding: 0px 5px;
-            border-radius: 3px;
-            font-size: 9px;
+            padding: 1px 7px;
+            border-radius: 4px;
+            font-size: 11px; /* قەبارێ نمرێ مەزنتر بوو */
             font-weight: 900;
-            margin-right: 4px;
-        }
-
-        /* Footer Credits */
-        .developer-footer {
-            margin-top: 6px;
-            padding-top: 4px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            color: #a0a5b1;
-        }
-        .developer-footer strong { color: #00bfa5; }
-        .developer-footer .brand {
-            background: rgba(0, 191, 165, 0.15);
-            color: #00bfa5;
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-weight: 800;
+            margin-right: 6px;
         }
     </style>
 </head>
-<body onclick="requestFullScreen()">
+<body>
 
 <div class="main-card">
     
@@ -161,18 +140,10 @@
     <!-- 2. مامۆستا پەروەر -->
     <div class="teacher-screen" id="screenParwar">
         <div class="header-box">
-            <div class="main-title">نمرێن قوتابییێن باڵادەست د بابەتی بیرکاری دا</div>
+            <div class="main-title">دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند بابەتی بیرکاری دا</div>
             <div class="teacher-badge">مامۆستا: پەروەر (بیرکاری)</div>
-            <div class="sub-title">سالا خواندنی 2020 هەتا 2026</div>
-            <div class="blessing">ماشاءالله تبارك الرحمن</div>
         </div>
         <div class="grid-container" id="gridParwar"></div>
-    </div>
-
-    <!-- Footer -->
-    <div class="developer-footer">
-        <div>گەشەپێدانا سستەمی: <strong>Eryvan Abas</strong></div>
-        <div class="brand">eryvan.dev</div>
     </div>
 
 </div>
@@ -231,10 +202,10 @@
         {name: "كه في اسلام", score: 94}, {name: "نورا دريس سعيد", score: 94}, {name: "رونا هي ادريس", score: 94},
         {name: "سازان يونس أحمد", score: 94}, {name: "رولان خالد علي", score: 94}, {name: "نارين صادق أمين", score: 94},
         {name: "دلشير مجيد عبدالله", score: 92}, {name: "امير نزار عبدالرحمن", score: 92}, {name: "به‌روار معصوم صديق", score: 92},
-        {name: "احمد اكرم", score: 92}, {name: "بلند حسن", score: 92}, {name: "فرهاد عبدالله حسن", score: 92}, {name: "ڤيا ن امين احمد", score: 92},
-        {name: "هدى موسى هاجي", score: 92}, {name: "زينب محسن حسين", score: 92}, {name: "كرين شيروان احمد", score: 92},
-        {name: "پيلان لقمان برو", score: 92}, {name: "نورژين شاكر حاجي", score: 92}, {name: "نازك عزالدين حسن", score: 92},
-        {name: "گلستان ابراهيم اسماعيل", score: 92}, {name: "حنان شاكر", score: 92}, {name: "جيمن محمد", score: 92},
+        {name: "احمد اكرم", score: 92}, {name: "بلند حسن", score: 92}, {name: "فرهاد عبدالله حسن", score: 92},
+        {name: "ڤيا ن امين احمد", score: 92}, {name: "هدى موسى هاجي", score: 92}, {name: "زينب محسن حسين", score: 92},
+        {name: "كرين شيروان احمد", score: 92}, {name: "پيلان لقمان برو", score: 92}, {name: "نورژين شاكر حاجي", score: 92},
+        {name: "نازك عزالدين حسن", score: 92}, {name: "گلستان ابراهيم اسماعيل", score: 92}, {name: "حنان شاكر", score: 92}, {name: "جيمن محمد", score: 92},
         {name: "رانيا خالد علي", score: 92}, {name: "ئايين صلاح الدين ابراهيم", score: 92}, {name: "سلام عبدالله", score: 92},
         {name: "اسامة مسعود احمد", score: 90}, {name: "سمير جعفر", score: 90}, {name: "يه يقين نايف عمر", score: 90},
         {name: "بيداء عبدالله", score: 90}, {name: "نژيان رشيد محمد", score: 90}, {name: "سازان موسى", score: 90},
@@ -257,7 +228,7 @@
     renderList(omarStudents, 'gridOmar');
     renderList(parwarStudents, 'gridParwar');
 
-    // 🔄 لڤینا ئۆتۆماتیک ڕاستەوخۆ (هەر 12 چڕکەیان ژ مامۆستایەک بۆ مامۆستایێ دی)
+    // 🔄 گوهرینا خۆکارانە یا شاشەیان
     const screens = document.querySelectorAll('.teacher-screen');
     let currentScreen = 0;
 
@@ -265,28 +236,7 @@
         screens[currentScreen].classList.remove('active');
         currentScreen = (currentScreen + 1) % screens.length;
         screens[currentScreen].classList.add('active');
-    }, 12000); // 12 چڕکە
-
-    // 🖥️ هەوڵدان بۆ ئۆتۆماتیکی Fullscreen
-    function requestFullScreen() {
-        const elem = document.documentElement;
-        if (!document.fullscreenElement) {
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen().catch(() => {});
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
-            }
-        }
-    }
-
-    // ئۆتۆماتیکی دەمێ لاپەڕە بار دەکات
-    window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-            requestFullScreen();
-        }, 1000);
-    });
+    }, 5000);
 </script>
 
 </body>
