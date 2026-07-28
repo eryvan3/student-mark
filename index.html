@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شاشا نمایشکرنا نمرێن قوتابییان</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
         * { 
             box-sizing: border-box; 
-            font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0;
             padding: 0;
         }
         body {
-            background-color: #0d0e10;
+            background-color: #0b0c0e;
             color: white;
             display: flex;
             justify-content: center;
@@ -25,45 +21,44 @@
             height: 100vh;
             width: 100vw;
             overflow: hidden;
-            padding: 8px;
+            padding: 4px;
         }
         .main-card {
             width: 100%;
             height: 100%;
-            background: #1e2022;
-            border: 2px solid #00a896;
+            background: #16181b;
+            border: 2px solid #00e6c3;
             border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 0 25px rgba(0, 168, 150, 0.2);
+            padding: 6px 10px;
+            box-shadow: 0 0 25px rgba(0, 230, 195, 0.2);
             display: flex;
             flex-direction: column;
+            /* زوومکرنا تەواوی شاشەیێ دا کو ژ دویرڤە گەلەک مەزن دیار ببت */
+            transform: scale(1.1);
+            transform-origin: center center;
         }
 
-        /* بەشێ سەری (Header) */
+        /* بەشێ سەری (Header) - کورت و بەرهەمدار */
         .header-box {
-            background: #ffc107;
+            background: linear-gradient(135deg, #ffc107, #ff9800);
             color: #000000;
             border-radius: 8px;
-            padding: 6px 14px;
+            padding: 4px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             flex-shrink: 0;
         }
-        .main-title { font-size: 14px; font-weight: 900; }
+        .main-title { font-size: 15px; font-weight: 900; }
         .teacher-badge {
             background: #000000;
             color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
+            font-size: 16px;
+            font-weight: 900;
             padding: 2px 12px;
-            border-radius: 15px;
+            border-radius: 20px;
         }
-        .sub-title { font-size: 12px; font-weight: 800; }
-        .blessing { font-size: 12px; font-weight: 900; color: #121315; }
 
         /* شاشێن مامۆستایان */
         .teacher-screen {
@@ -78,51 +73,71 @@
             opacity: 1;
         }
 
-        /* بەشێ تۆڕا ناڤان (Grid) */
+        /* بەشێ تۆڕا ناڤان (Grid) - 4 ستوون کەتوار */
         .grid-container {
             display: grid;
-            gap: 3px 6px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px 8px;
             flex-grow: 1;
-            align-content: stretch;
-            height: calc(100% - 50px);
+            height: calc(100% - 40px);
         }
 
-        /* شاشا عمر: 72 ناڤ ل سەر 3 ستوونان دبنە 24 ڕێز */
+        /* شاشا عمر: 72 ناڤ - 18 ڕێز */
         #gridOmar {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(24, minmax(0, 1fr));
+            grid-template-rows: repeat(18, minmax(0, 1fr));
             grid-auto-flow: column;
         }
 
-        /* شاشا پەروەر: 101 ناڤ ل سەر 4 ستوونان دبنە 26 ڕێز */
+        /* شاشا پەروەر: 101 ناڤ - 26 ڕێز */
         #gridParwar {
-            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(26, minmax(0, 1fr));
             grid-auto-flow: column;
         }
 
+        /* خانەیا ناڤێن قوتابیان - بێی مەسافەیا ڤاڵا ب پۆنتێ زوومکری */
         .student-row {
-            background: #2a2c30;
-            border: 1px solid #383b42;
-            padding: 0 8px;
+            background: #22252a;
+            border: 1px solid #333740;
+            padding: 0 5px;
             border-radius: 4px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 11px;
+            font-size: 13px; /* پۆنت گەلەک مەزن و ڕوون بوو */
             font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .student-index {
+            color: #ffc107;
+            font-size: 12px;
+            min-width: 20px;
+        }
+
+        .student-name {
+            color: #ffffff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* نمرە چەسپایە ب ناڤی ڤە ب ڕەنگەکێ زەق */
         .badge {
-            background: #00bfa5;
+            background: #00e6c3;
             color: #000000;
-            padding: 0 5px;
-            border-radius: 3px;
-            font-size: 10px;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: 900;
-            margin-right: 4px;
+            margin-right: 3px;
         }
     </style>
 </head>
@@ -130,18 +145,16 @@
 
 <div class="main-card">
     
-    <!-- 1. مامۆستا عمر ئەیوب -->
+    <!-- 1. مامۆستا عمر ئەیوب (هەمی ل سەر ئێک شاشە ب زوومکری) -->
     <div class="teacher-screen active" id="screenOmar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم کو نمرێن (98 و 100) ئیناین</div>
             <div class="teacher-badge">مامۆستا: عمر ئەیوب (عەرەبی)</div>
-            <div class="sub-title">سالا خواندنی 2020 هەتا 2026</div>
-            <div class="blessing">ماشاءالله تبارك الرحمن</div>
         </div>
         <div class="grid-container" id="gridOmar"></div>
     </div>
 
-    <!-- 2. مامۆستا پەروەر -->
+    <!-- 2. مامۆستا پەروەر (هەمی ل سەر ئێک شاشە ب زوومکری) -->
     <div class="teacher-screen" id="screenParwar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند بابەتی بیرکاری دا</div>
@@ -222,7 +235,10 @@
         students.forEach((st, index) => {
             container.innerHTML += `
                 <div class="student-row">
-                    <span>${index + 1}. ${st.name}</span>
+                    <div class="student-info">
+                        <span class="student-index">${index + 1}.</span>
+                        <span class="student-name">${st.name}</span>
+                    </div>
                     <span class="badge">${st.score}</span>
                 </div>
             `;
