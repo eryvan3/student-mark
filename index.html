@@ -8,12 +8,12 @@
     <style>
         * { 
             box-sizing: border-box; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Dubai', 'Segoe UI', Tahoma, Geneva, sans-serif; 
             margin: 0;
             padding: 0;
         }
         body {
-            background-color: #0b0c0e;
+            background-color: #0d0f12;
             color: white;
             display: flex;
             justify-content: center;
@@ -21,42 +21,40 @@
             height: 100vh;
             width: 100vw;
             overflow: hidden;
-            padding: 4px;
+            padding: 6px;
         }
         .main-card {
             width: 100%;
             height: 100%;
-            background: #16181b;
+            background: #141619;
             border: 2px solid #00e6c3;
-            border-radius: 12px;
-            padding: 6px 10px;
-            box-shadow: 0 0 25px rgba(0, 230, 195, 0.2);
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: 0 0 20px rgba(0, 230, 195, 0.15);
             display: flex;
             flex-direction: column;
-            /* زوومکرنا تەواوی شاشەیێ دا کو ژ دویرڤە گەلەک مەزن دیار ببت */
-            transform: scale(1.1);
-            transform-origin: center center;
         }
 
-        /* بەشێ سەری (Header) - کورت و بەرهەمدار */
+        /* بەشێ سەری (Header) - کورت و پڕشنگدار */
         .header-box {
-            background: linear-gradient(135deg, #ffc107, #ff9800);
-            color: #000000;
-            border-radius: 8px;
-            padding: 4px 12px;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: #ffffff;
+            border-radius: 6px;
+            padding: 4px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 6px;
             flex-shrink: 0;
+            height: 38px;
         }
-        .main-title { font-size: 15px; font-weight: 900; }
+        .main-title { font-size: 15px; font-weight: 800; }
         .teacher-badge {
             background: #000000;
-            color: #ffffff;
+            color: #ffc107;
             font-size: 16px;
             font-weight: 900;
-            padding: 2px 12px;
+            padding: 2px 14px;
             border-radius: 20px;
         }
 
@@ -64,7 +62,7 @@
         .teacher-screen {
             display: none;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
             height: 100%;
             flex-direction: column;
         }
@@ -73,13 +71,13 @@
             opacity: 1;
         }
 
-        /* بەشێ تۆڕا ناڤان (Grid) - 4 ستوون کەتوار */
+        /* بەشێ تۆڕا ناڤان (Grid) - 4 ستوون */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2px 8px;
+            gap: 3px 8px;
             flex-grow: 1;
-            height: calc(100% - 40px);
+            height: calc(100% - 44px);
         }
 
         /* شاشا عمر: 72 ناڤ - 18 ڕێز */
@@ -94,17 +92,17 @@
             grid-auto-flow: column;
         }
 
-        /* خانەیا ناڤێن قوتابیان - بێی مەسافەیا ڤاڵا ب پۆنتێ زوومکری */
+        /* خانەیا ناڤێن قوتابیان - مەزن و بێی مەسافەیا ڤاڵا */
         .student-row {
-            background: #22252a;
-            border: 1px solid #333740;
-            padding: 0 5px;
+            background: #1d2025;
+            border: 1px solid #2d323b;
+            padding: 0 8px;
             border-radius: 4px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px; /* پۆنت گەلەک مەزن و ڕوون بوو */
-            font-weight: 800;
+            font-size: 14px; /* پۆنتێ مەزنتر و ڕوونتر */
+            font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
         }
@@ -112,32 +110,36 @@
         .student-info {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             overflow: hidden;
             text-overflow: ellipsis;
+            flex-grow: 1;
         }
 
         .student-index {
             color: #ffc107;
-            font-size: 12px;
-            min-width: 20px;
+            font-size: 13px;
+            font-weight: 900;
+            min-width: 22px;
         }
 
         .student-name {
             color: #ffffff;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 13.5px;
         }
 
-        /* نمرە چەسپایە ب ناڤی ڤە ب ڕەنگەکێ زەق */
+        /* نمرە چەسپایە ب لایێ چەپێ ڤە */
         .badge {
             background: #00e6c3;
             color: #000000;
-            padding: 1px 5px;
+            padding: 0px 6px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 900;
-            margin-right: 3px;
+            margin-right: 6px;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -145,7 +147,7 @@
 
 <div class="main-card">
     
-    <!-- 1. مامۆستا عمر ئەیوب (هەمی ل سەر ئێک شاشە ب زوومکری) -->
+    <!-- 1. مامۆستا عمر ئەیوب -->
     <div class="teacher-screen active" id="screenOmar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم کو نمرێن (98 و 100) ئیناین</div>
@@ -154,7 +156,7 @@
         <div class="grid-container" id="gridOmar"></div>
     </div>
 
-    <!-- 2. مامۆستا پەروەر (هەمی ل سەر ئێک شاشە ب زوومکری) -->
+    <!-- 2. مامۆستا پەروەر -->
     <div class="teacher-screen" id="screenParwar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند بابەتی بیرکاری دا</div>
@@ -248,7 +250,7 @@
     renderList(omarStudents, 'gridOmar');
     renderList(parwarStudents, 'gridParwar');
 
-    // گوهرینا خۆکارانە یا شاشەیان (هەر 12 چڕکەیان جارەکێ)
+    // گوهرینا خۆکارانە ل سەر شاشەیان (هەر 12 چڕکەیان جارەکێ)
     const screens = document.querySelectorAll('.teacher-screen');
     let currentScreen = 0;
 
