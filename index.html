@@ -34,31 +34,34 @@
             justify-content: space-between;
         }
 
-        /* بەشێ سەری (Header) */
+        /* بەشێ سەری (Header) - دیار و ڕوون */
         .header-box {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
+            background: linear-gradient(135deg, #1e2530, #0f141d);
+            border: 1px solid #ff9800;
             color: #ffffff;
             border-radius: 6px;
             padding: 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 42px;
+            height: 44px;
             flex-shrink: 0;
             margin-bottom: 6px;
         }
         .main-title { 
             font-size: 17px; 
             font-weight: 800; 
+            color: #ffffff;
             letter-spacing: 0.5px;
         }
         .teacher-badge {
-            background: #000000;
-            color: #ffc107;
-            font-size: 17px;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: #ffffff;
+            font-size: 18px;
             font-weight: 900;
-            padding: 2px 16px;
+            padding: 3px 18px;
             border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         /* شاشێن مامۆستایان */
@@ -66,7 +69,7 @@
             display: none;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
-            height: calc(100% - 48px);
+            height: calc(100% - 50px);
             flex-direction: column;
         }
         .teacher-screen.active {
@@ -74,30 +77,39 @@
             opacity: 1;
         }
 
-        /* بەشێ تۆڕا ناڤان (Grid) - 4 ستوون کەتوار */
+        /* بەشێ تۆڕا ناڤان (Grid) */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
             gap: 3px 8px;
             height: 100%;
             width: 100%;
         }
 
-        /* شاشا عمر: 72 ناڤ - 18 ڕێز */
+        /* شاشا عمر: 72 ناڤ - 4 ستوون، 18 ڕێز */
         #gridOmar {
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(18, 1fr);
             grid-auto-flow: column;
         }
 
-        /* شاشا پەروەر: 101 ناڤ - 26 ڕێز */
+        /* شاشا پەروەر: 101 ناڤ - 4 ستوون، 26 ڕێز */
         #gridParwar {
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(26, 1fr);
             grid-auto-flow: column;
         }
 
-        /* شاشا هاریکار: 93 ناڤ - 24 ڕێز */
+        /* شاشا هاریکار: 93 ناڤ - 4 ستوون، 24 ڕێز */
         #gridHarikar {
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(24, 1fr);
+            grid-auto-flow: column;
+        }
+
+        /* شاشا سەگڤان: 111 ناڤ - 4 ستوون، 28 ڕێز */
+        #gridSegvan {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(28, 1fr);
             grid-auto-flow: column;
         }
 
@@ -110,7 +122,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
@@ -128,7 +140,7 @@
 
         .student-index {
             color: #ffc107;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 900;
             min-width: 22px;
         }
@@ -137,7 +149,6 @@
             color: #ffffff;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 14px;
         }
 
         .badge {
@@ -145,7 +156,7 @@
             color: #000000;
             padding: 1px 6px;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 900;
             margin-right: 4px;
             flex-shrink: 0;
@@ -174,13 +185,22 @@
         <div class="grid-container" id="gridParwar"></div>
     </div>
 
-    <!-- 3. مامۆستا هاریکار (ئینگلیزی) -->
+    <!-- 3. مامۆستا هاریکار -->
     <div class="teacher-screen" id="screenHarikar">
         <div class="header-box">
-            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ ئینگلیزی دا</div>
+            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند ڕێزا ئینگلیزی دا</div>
             <div class="teacher-badge">مامۆستا: هاریکار (ئینگلیزی)</div>
         </div>
         <div class="grid-container" id="gridHarikar"></div>
+    </div>
+
+    <!-- 4. مامۆستا سەگڤان -->
+    <div class="teacher-screen" id="screenSegvan">
+        <div class="header-box">
+            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم ل ئامادەییا ئادار یا تێکەڵ نمرێن بلند ب کوردییێ برینە</div>
+            <div class="teacher-badge">مامۆستا: سەگڤان نعمان (کوردی)</div>
+        </div>
+        <div class="grid-container" id="gridSegvan"></div>
     </div>
 
 </div>
@@ -253,7 +273,7 @@
     const harikarStudents = [
         {name: "هوزان ادريس", score: 100}, {name: "رانيا خالد", score: 100}, {name: "هلات حاجی", score: 100},
         {name: "ناريان لزكين", score: 100}, {name: "روان خالد", score: 100}, {name: "زينب محسن", score: 100},
-        {name: "شلير معصوم", score: 100}, {name: "نيناڤ حسن", score: 100}, {name: "رانيا مهدي", score: 100},
+        {name: "شلير معصوم", score: 100}, {name: "نيناف حسن", score: 100}, {name: "رانيا مهدي", score: 100},
         {name: "رولان خالد", score: 100}, {name: "قدمخير موسى", score: 98}, {name: "جميل هسام", score: 98},
         {name: "جيهاد صباح", score: 98}, {name: "احمد يونس", score: 98}, {name: "زينب محمود", score: 98},
         {name: "فیان امین", score: 98}, {name: "نارين صادق", score: 96}, {name: "نازك عبدالحكيم", score: 96},
@@ -261,19 +281,19 @@
         {name: "حسن ابراهيم", score: 96}, {name: "روناهي ادريس", score: 96}, {name: "نازك عبدالحكيم", score: 96},
         {name: "شيلان رمضان", score: 96}, {name: "يوسف خالص", score: 96}, {name: "شيرزاد طارق", score: 96},
         {name: "حسين احمد", score: 96}, {name: "عبدالله زبير", score: 96}, {name: "سمدار مهدي", score: 96},
-        {name: "سيبه ر عمر", score: 96}, {name: "لاڤا ممتاز", score: 96}, {name: "هاجر نواف", score: 96},
+        {name: "سيبه ر عمر", score: 96}, {name: "لافا ممتاز", score: 96}, {name: "هاجر نواف", score: 96},
         {name: "محمود محمد", score: 96}, {name: "پیشەوا عیسى", score: 96}, {name: "روزين سلام", score: 94},
         {name: "نازك عزالدين", score: 94}, {name: "نور جلال", score: 94}, {name: "عبدي مهدي", score: 94},
-        {name: "دلژين عادل", score: 94}, {name: "ازاد ادريس", score: 94}, {name: "هدى دهام", score: 94},
-        {name: "پێلان لقمان", score: 94}, {name: "شرين سلام", score: 94}, {name: "عبدالله رمضان", score: 94},
+        {name: "دلزين عادل", score: 94}, {name: "ازاد ادريس", score: 94}, {name: "هدى دهام", score: 94},
+        {name: "پيلان لقمان", score: 94}, {name: "شرين سلام", score: 94}, {name: "عبدالله رمضان", score: 94},
         {name: "نيهاد سلام", score: 94}, {name: "رضوان شعيب", score: 94}, {name: "رويدة صديق", score: 94},
-        {name: "سوزان وليد", score: 94}, {name: "ایمان صلاح", score: 94}, 
+        {name: "سوزان وليد", score: 94}, {name: "ایمان صلاح", score: 94}, {name: "رویدە صدیق", score: 94},
         {name: "پیلان لقمان", score: 94}, {name: "عبدی موسى", score: 94}, {name: "روژین سلام", score: 94},
         {name: "نریمان محمد", score: 94}, {name: "ستیرین سعد", score: 92}, {name: "شفين حسن", score: 92},
         {name: "سيلاف يوسف", score: 92}, {name: "الاء عبدالعزيز", score: 92}, {name: "ئايين صلاح الدين", score: 92},
-        {name: "اڤين جعفر", score: 92}, {name: "عثمان عزالدين", score: 92}, {name: "ڤيني خالد", score: 92},
+        {name: "افين جعفر", score: 92}, {name: "عثمان عزالدين", score: 92}, {name: "فيني خالد", score: 92},
         {name: "هبه يوسف", score: 92}, {name: "تارا قادر", score: 92}, {name: "فمان رمضان", score: 92},
-       , {name: "پيام حاجي", score: 92}, {name: "سازان يونس", score: 92},
+        {name: "عپمان عزالدین", score: 92}, {name: "پيام حاجي", score: 92}, {name: "سازان يونس", score: 92},
         {name: "دەریا فرهاد", score: 92}, {name: "ئالاء عبدالعزیز", score: 92}, {name: "سیلاف یونس", score: 92},
         {name: "الهام حسن", score: 92}, {name: "جوان فارس", score: 90}, {name: "دنيا موسي", score: 90},
         {name: "بيداء رجب", score: 90}, {name: "ايمان صلاح", score: 90}, {name: "محمود عصمت", score: 90},
@@ -283,6 +303,45 @@
         {name: "ریان علی", score: 90}, {name: "شيلان ابراهيم", score: 90}, {name: "دلجان عبدالستار", score: 90},
         {name: "روژین ادریس", score: 90}, {name: "شیروان احمد", score: 90}, {name: "دیژین شعبان", score: 90},
         {name: "بیداء رجب", score: 90}, {name: "مریم ولید", score: 90}, {name: "ابراهیم حازم", score: 90}
+    ];
+
+    const segvanStudents = [
+        {name: "ئاريان لزگين", score: 100}, {name: "عمر نجم", score: 100}, {name: "ئازاد ادريس حسن", score: 100},
+        {name: "رانيا خالد", score: 100}, {name: "روژين سلام", score: 100}, {name: "سولين ره مه زان", score: 100},
+        {name: "شاناز سعيد", score: 100}, {name: "ايمان صلاح", score: 100}, {name: "هه ڕڤين صادق", score: 100},
+        {name: "شرين سلام", score: 100}, {name: "نارين صادق", score: 98}, {name: "رضوان شعيب", score: 98},
+        {name: "ندى حميد", score: 98}, {name: "نازك عزالدين", score: 98}, {name: "عبدى مهدی", score: 98},
+        {name: "محمود عصمه ت", score: 98}, {name: "مریهه م صلاح", score: 98}, {name: "نازك عبدالحكيم", score: 98},
+        {name: "سورگول فرحان", score: 98}, {name: "پەيقين نايف", score: 98}, {name: "سولين نزار", score: 98},
+        {name: "هدی دهام محمد", score: 98}, {name: "جميل حسام عمر", score: 98}, {name: "جیهاد صباح ابراهیم", score: 98},
+        {name: "بیدا حسین", score: 98}, {name: "روژین امجد", score: 98}, {name: "هوزان ادريس", score: 98},
+        {name: "لوزان صالح", score: 98}, {name: "شيلان ره مه زان", score: 96}, {name: "سركفت مهاجر", score: 96},
+        {name: "پيشه وا عيسى", score: 96}, {name: "بيدا رجب", score: 96}, {name: "محمد شوكت", score: 96},
+        {name: "ليلى ره مه زان", score: 96}, {name: "سيلاف يونس", score: 96}, {name: "بزار محمد", score: 96},
+        {name: "محمد عادل", score: 96}, {name: "نورا ادريس", score: 96}, {name: "يسرى مهاجر", score: 96},
+        {name: "سعديه قاسم", score: 96}, {name: "هه ديا يوسف", score: 96}, {name: "نيدا فتحى", score: 96},
+        {name: "عبدالله زبير فاضل", score: 96}, {name: "رولان خالد علی", score: 96}, {name: "هاله حسن", score: 96},
+        {name: "حسین احمد عباس", score: 96}, {name: "بارين يونس", score: 96}, {name: "سمير جعفر", score: 96},
+        {name: "گلافيژ فتحى", score: 96}, {name: "روژين سلام", score: 96}, {name: "محمد صبری", score: 96},
+        {name: "زينب محسن", score: 96}, {name: "گرين شێروان", score: 96}, {name: "پيام حاجی", score: 94},
+        {name: "احمدعبدالسلام", score: 94}, {name: "نوزاد مشير", score: 94}, {name: "دەريا فرهاد", score: 94},
+        {name: "اسامه مسعود", score: 94}, {name: "دنيا موسى", score: 94}, {name: "شيلان ابراهيم", score: 94},
+        {name: "جوان فارس", score: 94}, {name: "ده‌ريا فرهاد نظير", score: 94}, {name: "پيلان مهقان", score: 94},
+        {name: "روپاك سگفان", score: 94}, {name: "دلال ماهر", score: 94}, {name: "محمود عصمت", score: 94},
+        {name: "سنور حسن", score: 94}, {name: "حسين موفق", score: 94}, {name: "كه ڤى ئيسلام", score: 94},
+        {name: "فرهاد عبدالله", score: 94}, {name: "محمد محمود", score: 94}, {name: "بيداء حسين", score: 94},
+        {name: "هه ڕڤين صادق", score: 94}, {name: "الاعبدالعزيز", score: 92}, {name: "الاحسن", score: 92},
+        {name: "ديژين شعبان", score: 92}, {name: "رويده سديق", score: 92}, {name: "شرين سلام", score: 92},
+        {name: "سوزان وليد", score: 92}, {name: "نيدا فتحى", score: 92}, {name: "ردوان شفان", score: 92},
+        {name: "ايناس عصمت", score: 92}, {name: "نور محمد", score: 92}, {name: "ایمان هشیار", score: 92},
+        {name: "ساره احمد", score: 92}, {name: "فينێ خالد", score: 92}, {name: "ساره شهاب", score: 92},
+        {name: "فین صالح قادر", score: 92}, {name: "هەلات حاجی رجب", score: 92}, {name: "زانا احمد", score: 92},
+        {name: "هدی موسا", score: 92}, {name: "احمد اكرم", score: 92}, {name: "دلقين علی", score: 92},
+        {name: "ئاواز حسن", score: 92}, {name: "عیدی لقمان", score: 90}, {name: "حسين نجم", score: 90},
+        {name: "محمد رشيد", score: 90}, {name: "سيدرا عبدالله", score: 90}, {name: "ناڤان اسماعيل", score: 90},
+        {name: "سازان يونس", score: 90}, {name: "ريواز خالد", score: 90}, {name: "اکرم جولان رشو", score: 90},
+        {name: "سازان یونس احمد حامد", score: 90}, {name: "سوزان ولید سلمان", score: 90}, {name: "بلند حسن", score: 90},
+        {name: "سیبه ڕ صدیق", score: 90}, {name: "يوسف عبدالله", score: 90}
     ];
 
     function renderList(students, containerId) {
@@ -303,8 +362,9 @@
     renderList(omarStudents, 'gridOmar');
     renderList(parwarStudents, 'gridParwar');
     renderList(harikarStudents, 'gridHarikar');
+    renderList(segvanStudents, 'gridSegvan');
 
-    // گوهرینا لاپەڕیان (عمر -> پەروەر -> هاریکار) هەر 12 چڕکەیان جارەکێ
+    // گوهرینا لاپەڕیان دیزاینکری (عمر -> پەروەر -> هاریکار -> سەگڤان) هەر 12 چڕکەیان جارەکێ
     const screens = document.querySelectorAll('.teacher-screen');
     let currentScreen = 0;
 
