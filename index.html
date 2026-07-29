@@ -6,9 +6,11 @@
     <title>شاشا نمایشکرنا نمرێن قوتابییان - TV</title>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dubai:wght@400;500;700;800&display=swap');
+
         * { 
             box-sizing: border-box; 
-            font-family: 'Dubai', 'Segoe UI', Tahoma, Arial, sans-serif; 
+            font-family: 'Dubai', system-ui, -apple-system, sans-serif; 
             margin: 0;
             padding: 0;
         }
@@ -16,52 +18,59 @@
         html, body {
             width: 100vw;
             height: 100vh;
-            background-color: #0b0c0e;
+            background-color: #08090b;
             color: white;
             overflow: hidden;
-            padding: 10px;
+            padding: 12px;
         }
         
+        /* کارتێ سەرەکی ب کاریگەرییا Glow */
         .main-card {
             width: 100%;
             height: 100%;
-            background: #141619;
-            border: 2px solid #00e6c3;
-            border-radius: 8px;
-            padding: 6px;
+            background: linear-gradient(145deg, #10141d, #0b0d13);
+            border: 2px solid rgba(0, 230, 195, 0.4);
+            box-shadow: 0 0 20px rgba(0, 230, 195, 0.15);
+            border-radius: 12px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* بەشێ سەری (Header) */
+        /* بەشێ سەری (Header) - دیزاینا مودێرن */
         .header-box {
-            background: linear-gradient(135deg, #1e2530, #0f141d);
-            border: 1px solid #ff9800;
+            background: rgba(20, 26, 38, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 152, 0, 0.5);
             color: #ffffff;
-            border-radius: 6px;
-            padding: 0 16px;
+            border-radius: 8px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 44px;
+            height: 48px;
             flex-shrink: 0;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
+
         .main-title { 
-            font-size: 17px; 
+            font-size: 18px; 
             font-weight: 800; 
             color: #ffffff;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
+
         .teacher-badge {
             background: linear-gradient(135deg, #ff9800, #ff5722);
             color: #ffffff;
-            font-size: 18px;
-            font-weight: 900;
-            padding: 3px 18px;
+            font-size: 17px;
+            font-weight: 800;
+            padding: 4px 20px;
             border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            box-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
         }
 
         /* شاشێن مامۆستایان */
@@ -69,7 +78,7 @@
             display: none;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
-            height: calc(100% - 50px);
+            height: calc(100% - 56px);
             flex-direction: column;
         }
         .teacher-screen.active {
@@ -80,7 +89,7 @@
         /* بەشێ تۆڕا ناڤان (Grid) */
         .grid-container {
             display: grid;
-            gap: 3px 8px;
+            gap: 4px 10px;
             height: 100%;
             width: 100%;
         }
@@ -115,10 +124,10 @@
 
         /* خانەیا ناڤێن قوتابیان */
         .student-row {
-            background: #1e2126;
-            border: 1px solid #2d323b;
-            padding: 0 8px;
-            border-radius: 4px;
+            background: rgba(25, 30, 41, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0 10px;
+            border-radius: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -127,39 +136,47 @@
             white-space: nowrap;
             overflow: hidden;
             height: 100%;
+            transition: background 0.2s;
+        }
+
+        .student-row:nth-child(even) {
+            background: rgba(18, 22, 31, 0.7);
         }
 
         .student-info {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             overflow: hidden;
             text-overflow: ellipsis;
             flex-grow: 1;
         }
 
         .student-index {
-            color: #ffc107;
+            color: #ffca28;
             font-size: 12.5px;
-            font-weight: 900;
-            min-width: 22px;
+            font-weight: 800;
+            min-width: 24px;
+            opacity: 0.9;
         }
 
         .student-name {
-            color: #ffffff;
+            color: #f0f4f8;
             overflow: hidden;
             text-overflow: ellipsis;
+            letter-spacing: 0.2px;
         }
 
         .badge {
-            background: #00e6c3;
-            color: #000000;
-            padding: 1px 6px;
+            background: linear-gradient(135deg, #00e6c3, #00b39b);
+            color: #061815;
+            padding: 1px 7px;
             border-radius: 4px;
             font-size: 12.5px;
             font-weight: 900;
             margin-right: 4px;
             flex-shrink: 0;
+            box-shadow: 0 0 6px rgba(0, 230, 195, 0.3);
         }
     </style>
 </head>
