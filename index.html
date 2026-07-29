@@ -34,7 +34,7 @@
             justify-content: space-between;
         }
 
-        /* بەشێ سەری (Header) - دیار و ڕوون */
+        /* بەشێ سەری (Header) */
         .header-box {
             background: linear-gradient(135deg, #1e2530, #0f141d);
             border: 1px solid #ff9800;
@@ -188,7 +188,7 @@
     <!-- 3. مامۆستا هاریکار -->
     <div class="teacher-screen" id="screenHarikar">
         <div class="header-box">
-            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند ڕێزا ئینگلیزی دا</div>
+            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ ئینگلیزیێدا</div>
             <div class="teacher-badge">مامۆستا: هاریکار (ئینگلیزی)</div>
         </div>
         <div class="grid-container" id="gridHarikar"></div>
@@ -197,7 +197,7 @@
     <!-- 4. مامۆستا سەگڤان -->
     <div class="teacher-screen" id="screenSegvan">
         <div class="header-box">
-            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم ل ئامادەییا ئادار یا تێکەڵ نمرێن بلند ب کوردییێ برینە</div>
+            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ کوردییێدا</div>
             <div class="teacher-badge">مامۆستا: سەگڤان نعمان (کوردی)</div>
         </div>
         <div class="grid-container" id="gridSegvan"></div>
@@ -364,7 +364,7 @@
     renderList(harikarStudents, 'gridHarikar');
     renderList(segvanStudents, 'gridSegvan');
 
-    // گوهرینا لاپەڕیان دیزاینکری (عمر -> پەروەر -> هاریکار -> سەگڤان) هەر 12 چڕکەیان جارەکێ
+    // گوهرینا لاپەڕیان هەر 12 چڕکەیان جارەکێ
     const screens = document.querySelectorAll('.teacher-screen');
     let currentScreen = 0;
 
