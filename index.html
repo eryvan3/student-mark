@@ -85,7 +85,6 @@
             box-shadow: 0 0 12px rgba(255, 152, 0, 0.5);
         }
 
-        /* لڤینا شاشێن ڤیدیۆیی (Fade Transitions) */
         .teacher-screen {
             position: absolute;
             top: 12px;
@@ -113,11 +112,12 @@
             width: 100%;
         }
 
-        /* لێکدانا ژمارا ستوون و ڕێزان بۆ هەر مامۆستایەکێ */
+        /* ستون و ڕێز بۆ مامۆستایان */
         #gridOmar { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(18, 1fr); grid-auto-flow: column; }
         #gridParwar { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(26, 1fr); grid-auto-flow: column; }
         #gridHarikar { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(24, 1fr); grid-auto-flow: column; }
         #gridSegvan { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(28, 1fr); grid-auto-flow: column; }
+        #gridHawkarPhysics { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(34, 1fr); grid-auto-flow: column; }
 
         .student-row {
             background: rgba(255, 255, 255, 0.035);
@@ -127,7 +127,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
@@ -137,7 +137,6 @@
             transition: all 0.3s ease;
         }
 
-        /* لڤینا هاتنا ناڤان کاتێ شاشە چالاك دبيت */
         .teacher-screen.active .student-row {
             animation: slideUp 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
@@ -152,16 +151,16 @@
         .student-info {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             overflow: hidden;
-            padding-right: 8px;
+            padding-right: 6px;
             flex-grow: 1;
         }
 
         .student-index {
             color: #ffca28;
             font-family: 'Outfit', sans-serif;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 800;
             min-width: 24px;
         }
@@ -177,10 +176,10 @@
             background: linear-gradient(135deg, #00e6c3, #00b39b);
             color: #031412;
             font-family: 'Outfit', sans-serif;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 900;
             height: 100%;
-            min-width: 38px;
+            min-width: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -189,7 +188,6 @@
             box-shadow: -2px 0 8px rgba(0, 230, 195, 0.3);
         }
 
-        /* بەرا پێشڤەچوونا کاتی (Progress Bar) کۆ هه‌ستێ ڤیدیۆیێ دده‌ت */
         .progress-bar-container {
             position: absolute;
             bottom: 4px;
@@ -222,7 +220,7 @@
 
 <div class="main-card">
     
-    <!-- 1. مامۆستا عمر ئەیوب -->
+    <!-- 1. مامۆستا عمر ئەیوب (عەرەبی) -->
     <div class="teacher-screen active" id="screenOmar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم کو نمرێن (98 و 100) ئیناین</div>
@@ -231,16 +229,16 @@
         <div class="grid-container" id="gridOmar"></div>
     </div>
 
-    <!-- 2. مامۆستا پەروەر -->
+    <!-- 2. مامۆستا پەروەر (بیرکاری) -->
     <div class="teacher-screen" id="screenParwar">
         <div class="header-box">
-            <div class="main-title">دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند بابەتی بیرکاری دا</div>
+            <div class="main-title">دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند د بابەتێ  بیرکاری دا</div>
             <div class="teacher-badge">مامۆستا: پەروەر (بیرکاری)</div>
         </div>
         <div class="grid-container" id="gridParwar"></div>
     </div>
 
-    <!-- 3. مامۆستا هاریکار -->
+    <!-- 3. مامۆستا هاریکار (ئینگلیزی) -->
     <div class="teacher-screen" id="screenHarikar">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ ئینگلیزیێدا</div>
@@ -249,7 +247,7 @@
         <div class="grid-container" id="gridHarikar"></div>
     </div>
 
-    <!-- 4. مامۆستا سەگڤان -->
+    <!-- 4. مامۆستا سەگڤان (کوردی) -->
     <div class="teacher-screen" id="screenSegvan">
         <div class="header-box">
             <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ کوردییێدا</div>
@@ -258,7 +256,15 @@
         <div class="grid-container" id="gridSegvan"></div>
     </div>
 
-    <!-- Progress Bar -->
+    <!-- 5. مامۆستا هاوکار (فیزیا) - ل دوماهیکێ -->
+    <div class="teacher-screen" id="screenHawkarPhysics">
+        <div class="header-box">
+            <div class="main-title">دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابه‌تێ فیزیایێدا </div>
+            <div class="teacher-badge">مامۆستا: هاوکار (فیزیا)</div>
+        </div>
+        <div class="grid-container" id="gridHawkarPhysics"></div>
+    </div>
+
     <div class="progress-bar-container">
         <div class="progress-bar running" id="progressBar"></div>
     </div>
@@ -404,13 +410,57 @@
         {name: "سیبه ڕ صدیق", score: 90}, {name: "يوسف عبدالله", score: 90}
     ];
 
+    const hawkarPhysicsStudents = [
+        {name: "فرحان عبدالله محمد", score: 100}, {name: "گۆلين مجدل نوح", score: 100}, {name: "سيلاف يونس بلال", score: 100},
+        {name: "ايمان صلاح حسن", score: 100}, {name: "رۆژێن سلام ناصر", score: 100}, {name: "اسامه مسعود احمد", score: 100},
+        {name: "ڤينێ خالد احمد", score: 100}, {name: "بژار محمد حسن", score: 100}, {name: "سيدرا عمر حسين", score: 100},
+        {name: "په يقين نايف عمر", score: 100}, {name: "نور جلال سعيد", score: 100}, {name: "سيلفانه سليمان ابراهيم", score: 100},
+        {name: "لوزان صالح عمر", score: 100}, {name: "شيرزاد طارق محمد", score: 100}, {name: "ره‌يان بهزاد خورشيد", score: 100},
+        {name: "محمد صالح", score: 100}, {name: "انديرا محمد قاسم", score: 100}, {name: "يوسف خالص شيخو", score: 100},
+        {name: "دلژين عادل صالح تتۆ", score: 100}, {name: "سدره علی عبدالکريم", score: 100}, {name: "ئارام بدرالدين برێ", score: 100},
+        {name: "ايه حسين خلف", score: 100}, {name: "چرا ابراهيم", score: 100}, {name: "سولين موسى علی", score: 100},
+        {name: "نيدەم اديب محمود", score: 100}, {name: "رامان شعبان", score: 100}, {name: "سيارشيد علی", score: 100},
+        {name: "ئاراز شيروان حسين", score: 100}, {name: "سيدرا مجيد عبدالله", score: 100}, {name: "ره‌هه ند محسن", score: 100},
+        {name: "عبدالله زبير فاضل", score: 100}, {name: "ازاد ادريس حسن", score: 100}, {name: "محمود عصمت مصطفى", score: 98},
+        {name: "جميل حسام عمر", score: 98}, {name: "هاله حسن احمد", score: 98}, {name: "نورا ادريس سعيد", score: 98},
+        {name: "رولان خالد علی", score: 98}, {name: "ده‌ريا فرهاد نظير", score: 98}, {name: "عادل شوكت", score: 98},
+        {name: "چرا ازاد حسين", score: 98}, {name: "احمد يونس احمد", score: 98}, {name: "زانا احمد حسين", score: 98},
+        {name: "ره‌وان خالد علی", score: 98}, {name: "به‌روار معصوم صديق", score: 98}, {name: "ريان سکفان محمد", score: 98},
+        {name: "عثمان عزالدين حسين", score: 98}, {name: "هلات حاجی رجب", score: 98}, {name: "جيهان شهاب ابراهيم", score: 98},
+        {name: "هدى موسى حاجی", score: 98}, {name: "هدى دهام محمد", score: 98}, {name: "نيرگز سربت اسماعيل", score: 98},
+        {name: "رانيا خالد علی", score: 98}, {name: "شير معصوم صديق", score: 98}, {name: "ايه فرهاد نظير", score: 98},
+        {name: "اخلاص حسين احمد", score: 98}, {name: "يوسف کريم علی", score: 96}, {name: "سورگل فرحان محمد", score: 96},
+        {name: "سولين رمضان صالح", score: 96}, {name: "ساره شهاب احمد", score: 96}, {name: "ڤين دلوڤان حاجی", score: 96},
+        {name: "هاله حسن احمد", score: 96}, {name: "يسرى مهاجر صمد", score: 96}, {name: "جيهاد صباح ابراهيم", score: 96},
+        {name: "ردوان شفان حسين", score: 96}, {name: "حسين احمد عباس", score: 96}, {name: "سازان يونس احمد", score: 96},
+        {name: "سوزان وليد سلمان", score: 96}, {name: "هوزان ادريس حسن", score: 96}, {name: "ئاوام حسن علی", score: 96},
+        {name: "گۆلين مجدل نوح", score: 96}, {name: "ڤين صالح قادر", score: 96}, {name: "گلستان ابراهيم اسماعيل", score: 96},
+        {name: "ره‌وان خالد علی", score: 96}, {name: "هيلين عصمت محمد", score: 96}, {name: "حسين موفق حسين", score: 96},
+        {name: "ئێوان کامل فارس", score: 96}, {name: "محسن صالح محمد", score: 96}, {name: "هلباين جمعه حسين", score: 96},
+        {name: "دلڤين عطاالله", score: 96}, {name: "روژين قاسم محمد", score: 96}, {name: "ريکفت مهاجر صمد", score: 96},
+        {name: "هاڤين محمد عمر", score: 96}, {name: "ڤيان امين احمد", score: 96}, {name: "عبدالرحمن عبدالسلام جميل", score: 96},
+        {name: "عمر نجم عبدالجبار", score: 96}, {name: "محمد محمود عبدالرحمن", score: 96}, {name: "بيداء رجب داود", score: 96},
+        {name: "محمد علی عبدالکريم", score: 96}, {name: "علی محمد صالح", score: 94}, {name: "نيهاد سالم سليمان", score: 94},
+        {name: "رويده صديق نقيب", score: 94}, {name: "زينب محسن حسين", score: 94}, {name: "دلشير مجيد عبدالله", score: 94},
+        {name: "شيلان ابراهيم صالح", score: 94}, {name: "نازک عبدالحکيم مصطفى", score: 94}, {name: "ريان علی احمد", score: 94},
+        {name: "سولين نزار عمر", score: 94}, {name: "شيلان ابراهيم صالح", score: 94}, {name: "محمد عادل صالح", score: 94},
+        {name: "احمد بنگين خليل", score: 94}, {name: "يونس احمد عبو", score: 94}, {name: "بارين يونس بلال", score: 94},
+        {name: "روژين امجد حجى", score: 94}, {name: "شرين سلام ناصر", score: 94}, {name: "ريکفت مهاجر صمد", score: 94},
+        {name: "شير معصوم صديق", score: 94}, {name: "کرژين محمد عمر", score: 94}, {name: "محمد اکرم خلف", score: 94},
+        {name: "ريزان سليمان محو", score: 94}, {name: "احمد عبدالسلام محى", score: 94}, {name: "سمدار مهدی موسى", score: 94},
+        {name: "يسرى صباح يحيى", score: 94}, {name: "پيلان لقمان برو", score: 94}, {name: "نێريڤان عباس محمود", score: 94},
+        {name: "عبدالله رمضان محمد", score: 94}, {name: "هلات حاجی رجب", score: 94}, {name: "دلڤين سلوان عبدالعزيز", score: 94},
+        {name: "شير عادل صالح", score: 94},
+        
+    ];
+
     function renderList(students, containerId) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
         students.forEach((st, index) => {
             const row = document.createElement('div');
             row.className = 'student-row';
-            row.style.animationDelay = `${(index % 28) * 0.02}s`;
+            row.style.animationDelay = `${(index % 34) * 0.015}s`;
             row.innerHTML = `
                 <div class="student-info">
                     <span class="student-index">${index + 1}.</span>
@@ -426,15 +476,15 @@
     renderList(parwarStudents, 'gridParwar');
     renderList(harikarStudents, 'gridHarikar');
     renderList(segvanStudents, 'gridSegvan');
+    renderList(hawkarPhysicsStudents, 'gridHawkarPhysics');
 
-    // لڤینا گوهرینا شاشەیان ب شێوەیا ڤیدیۆکێ ب لڤینا Progress Bar
     const screens = document.querySelectorAll('.teacher-screen');
     const progressBar = document.getElementById('progressBar');
     let currentScreen = 0;
 
     function resetProgressBar() {
         progressBar.classList.remove('running');
-        void progressBar.offsetWidth; // Force Reflow
+        void progressBar.offsetWidth;
         progressBar.classList.add('running');
     }
 
