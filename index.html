@@ -51,13 +51,13 @@
 
         .header-box {
             background: linear-gradient(90deg, rgba(255, 152, 0, 0.28), rgba(0, 230, 195, 0.2));
-            border: 1px solid rgba(255, 152, 0, 0.5);
+            border: 1px solid rgba(255, 152, 0, 0.6);
             border-radius: 12px;
             padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 64px;
+            height: 76px;
             margin-bottom: 10px;
             animation: pulseHeader 4s infinite alternate;
         }
@@ -68,23 +68,35 @@
         }
 
         .main-title {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 28px;
+            font-weight: 900;
             color: #ffffff;
-            letter-spacing: 0.3px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-            line-height: 1.2;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4), 0 2px 6px rgba(0,0,0,0.8);
+            line-height: 1.3;
         }
 
         .teacher-badge {
             background: linear-gradient(135deg, #ff9800, #ff5722);
             color: #ffffff;
-            font-size: 19px;
-            font-weight: 800;
-            padding: 6px 24px;
-            border-radius: 22px;
-            box-shadow: 0 0 14px rgba(255, 152, 0, 0.5);
+            font-size: 26px;
+            font-weight: 900;
+            padding: 8px 32px;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(255, 152, 0, 0.7);
             white-space: nowrap;
+            animation: badgeGlow 2s infinite alternate;
+        }
+
+        @keyframes badgeGlow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+            }
+            100% {
+                transform: scale(1.03);
+                box-shadow: 0 0 28px rgba(255, 152, 0, 0.95);
+            }
         }
 
         .teacher-screen {
@@ -113,7 +125,7 @@
             grid-template-rows: repeat(18, 1fr);
             grid-auto-flow: column;
             gap: 4px 10px;
-            height: calc(100% - 74px);
+            height: calc(100% - 86px);
             width: 100%;
         }
 
@@ -206,7 +218,7 @@
         }
 
         .progress-bar.running {
-            animation: progressAnim 10s linear infinite;
+            animation: progressAnim 15s linear infinite; /* دەم هاتە گۆڕین بۆ 15s */
         }
 
         @keyframes progressAnim {
@@ -224,7 +236,7 @@
 </div>
 
 <script>
-    /* ===================== داتايێن قوتابييان (٧٢ هه‌ر مامۆستایه‌کی) ===================== */
+    /* ===================== داتایێن قوتابييان (٧٢ هه‌ر مامۆستایه‌کی) ===================== */
     const omarStudents = [{name:"ڤين صالح",score:100},{name:"هلات حاجي",score:100},{name:"هدى دحام",score:100},{name:"ايمان صلاح",score:100},{name:"محمد حسين",score:100},{name:"عبدالله ادريس",score:100},{name:"فرات جيهاد",score:100},{name:"كاوه علي سيڤو",score:100},{name:"يوسف خالص شيخو",score:100},{name:"مهاباد حسين اسماعيل",score:100},{name:"ڤين صالح قادر",score:100},{name:"پێلان لقمان برو",score:100},{name:"إكرام عبدالكريم صالح",score:100},{name:"محمد علي عبدالكريم",score:100},{name:"ره‌وان خالد علي",score:100},{name:"اية عبدالكريم محمد",score:100},{name:"دعاء عبدالكريم محمد",score:100},{name:"إسراء حسین عبدالله",score:100},{name:"الاء اكرام درمان",score:100},{name:"رجوان عیسی حمو",score:100},{name:"دلمان صلاح عبدالله",score:100},{name:"مازن خلف سلیمان",score:100},{name:"ريان سكفان محمد",score:100},{name:"به‌روار معصوم صدیق",score:100},{name:"سدرة علی عبدالكريم",score:100},{name:"هندرین محمدامین یاسین",score:100},{name:"سیدرا محمدامین خورشید",score:100},{name:"ایمان غازی علی",score:100},{name:"صائب رشید حسین",score:100},{name:"نشوان خلو رفي",score:100},{name:"حلوة حازم محمد",score:100},{name:"سيدرا مجيد عبدالله",score:100},{name:"چرا ازاد حسين",score:100},{name:"اخلاص حسين",score:100},{name:"عبدالرحمن عبدالسلام",score:100},{name:"نشوان خلو",score:100},{name:"عبدالباري عبد القادر",score:98},{name:"گولين مجدل",score:98},{name:"هبه يوسف",score:98},{name:"سوزان وليد",score:98},{name:"عبدالله زبير",score:98},{name:"رولان خالد",score:98},{name:"ڤهمان رمضان",score:98},{name:"هلات حاجی رجب",score:98},{name:"گلستان ابراهيم اسماعيل",score:98},{name:"سولين خليل ابراهيم",score:98},{name:"جيهان شهاب ابراهيم",score:98},{name:"گولجان اسماعيل جانگير",score:98},{name:"هبه حسن عبدالقادر",score:98},{name:"رضوان مشير محمود",score:98},{name:"سيلڤانه سليمان ابراهيم",score:98},{name:"منتهی قدر",score:98},{name:"محسن صالح محمد",score:98},{name:"فرحان عبدالله محمد",score:98},{name:"سمدار مهدی موسی",score:98},{name:"اندیرا محمد قاسم",score:98},{name:"محمد صالح علي",score:98},{name:"ملاك نزار عبدالرحمن",score:98},{name:"رنا عماد عیسی",score:98},{name:"هه رجوان سلام كركو",score:98},{name:"نورا زیاد احمد",score:98},{name:"احمد هشیار حمد",score:98},{name:"عبدالله رمضان محمد",score:98},{name:"علي محمد صالح",score:98},{name:"یحیی عبدالكریم صالح",score:98},{name:"لیا شهاب احمد",score:98},{name:"چرا ابراهیم جمیل",score:98},{name:"نیوار نورالدین رمضان",score:98},{name:"نیناف صلاح احمد",score:98},{name:"عبدالرحمن بدل",score:98},{name:"نورا محمد",score:98},{name:"ملازم محمد امين",score:98}];
     const parwarStudents = [{name:"عثمان عزالدين حسين",score:100},{name:"جميل حسام عمر",score:100},{name:"أحمد يونس أحمد",score:100},{name:"ره‌هند محسن عبدالكريم",score:100},{name:"متين اسكندر اسكندر",score:100},{name:"ئوماد لقمان",score:100},{name:"محمد صالح",score:100},{name:"دلال ماهر",score:100},{name:"ده‌ريا فرهاد نظير",score:100},{name:"سوزان وليد سلمان",score:100},{name:"چرا ابراهيم",score:100},{name:"جوان نايف",score:100},{name:"سيدرة علي عبدالكريم",score:100},{name:"بارين يونس بلال",score:100},{name:"سيلاف يونس بلال",score:100},{name:"سلڤانه سليمان ابراهيم",score:100},{name:"گۆلين مجدل",score:100},{name:"رێكه‌فت مهاجر محمد",score:98},{name:"ريان سكفان محمد",score:98},{name:"نیهاد سالم سليمان",score:98},{name:"يوسف خالص شيفو",score:98},{name:"ئێوان كامل فارس",score:98},{name:"ره‌وان خالد علي",score:98},{name:"عبدالله زبير فاخر",score:98},{name:"حسين أحمد عباس",score:98},{name:"عمر دلدار حميد",score:98},{name:"يوسف كريم علي",score:98},{name:"روپاك سكفان رشيد",score:98},{name:"سيدرا مجيد عبدالله",score:98},{name:"نازك عبدالحكيم مصطفى",score:98},{name:"نور جلال سعيد",score:98},{name:"هلات كردي صالح",score:98},{name:"شيرين حسين صالح",score:98},{name:"چرا آزاد حسين",score:98},{name:"شلير معصوم",score:98},{name:"كولين مجدل نوع",score:98},{name:"بيداء حسين",score:98},{name:"سنور حسين",score:98},{name:"هودا دهام محمد",score:98},{name:"جيهان شهاب ابراهيم",score:98},{name:"بژار محمد حسن",score:96},{name:"محمد علي عبدالكريم",score:96},{name:"محسن صالح محمد",score:96},{name:"نيدەم أديب محمود",score:96},{name:"عبدالبارئ عبدالقادر",score:96},{name:"عبدالعزيز عبدالقادر",score:96},{name:"رضوان شعيب معروف",score:96},{name:"شيرزاد طارق",score:96},{name:"حسين موفق",score:96},{name:"ريزان سليمان عمر",score:96},{name:"رويدة صديق نقيب",score:96},{name:"ريان عبدالعزيز",score:96},{name:"ميديا موسى عبدالله",score:96},{name:"هوزان ادريس",score:96},{name:"ڕۆژێن سلام ناصر",score:96},{name:"ايمان صلاح حسين",score:96},{name:"لا ڤا طارق",score:96},{name:"جوان فارس",score:96},{name:"هه‌ڤێن صادق",score:96},{name:"محمد صبرى محمد",score:94},{name:"الياس داود اسماعيل",score:94},{name:"عادل شوكت",score:94},{name:"عمر نجم",score:94},{name:"عبدالله رمضان محمد",score:94},{name:"ردوان شفان حسين",score:94},{name:"لولاف عبدالرحمن اسماعيل",score:94},{name:"كه في اسلام",score:94},{name:"نورا دريس سعيد",score:94},{name:"رونا هي ادريس",score:94},{name:"سازان يونس أحمد",score:94},{name:"رولان خالد علي",score:94},{name:"نارين صادق أمين",score:94}];
     const harikarStudents = [{name:"هوزان ادريس",score:100},{name:"رانيا خالد",score:100},{name:"هلات حاجی",score:100},{name:"ناريان لزكين",score:100},{name:"روان خالد",score:100},{name:"زينب محسن",score:100},{name:"شلير معصوم",score:100},{name:"نيناف حسن",score:100},{name:"رانيا مهدي",score:100},{name:"رولان خالد",score:100},{name:"قدمخير موسى",score:98},{name:"جميل هسام",score:98},{name:"جيهاد صباح",score:98},{name:"احمد يونس",score:98},{name:"زينب محمود",score:98},{name:"فیان امین",score:98},{name:"نارين صادق",score:96},{name:"نازك عبدالحكيم",score:96},{name:"عمر نجم",score:96},{name:"عبدالله زبير",score:96},{name:"سولين خليل",score:96},{name:"حسن ابراهيم",score:96},{name:"روناهي ادريس",score:96},{name:"نازك عبدالحكيم",score:96},{name:"شيلان رمضان",score:96},{name:"يوسف خالص",score:96},{name:"شيرزاد طارق",score:96},{name:"حسين احمد",score:96},{name:"عبدالله زبير",score:96},{name:"سمدار مهدي",score:96},{name:"سيبه ر عمر",score:96},{name:"لافا ممتاز",score:96},{name:"هاجر نواف",score:96},{name:"محمود محمد",score:96},{name:"پیشەوا عیسى",score:96},{name:"روزين سلام",score:94},{name:"نازك عزالدين",score:94},{name:"نور جلال",score:94},{name:"عبدي مهدي",score:94},{name:"دلزين عادل",score:94},{name:"ازاد ادريس",score:94},{name:"هدى دهام",score:94},{name:"پيلان لقمان",score:94},{name:"شرين سلام",score:94},{name:"عبدالله رمضان",score:94},{name:"نيهاد سلام",score:94},{name:"رضوان شعيب",score:94},{name:"رويدة صديق",score:94},{name:"سوزان وليد",score:94},{name:"ایمان صلاح",score:94},{name:"رویدە صدیق",score:94},{name:"پیلان لقمان",score:94},{name:"عبدی موسى",score:94},{name:"روژین سلام",score:94},{name:"نریمان محمد",score:94},{name:"ستیرین سعد",score:92},{name:"شفين حسن",score:92},{name:"سيلاف يوسف",score:92},{name:"الاء عبدالعزيز",score:92},{name:"ئايين صلاح الدين",score:92},{name:"افين جعفر",score:92},{name:"عثمان عزالدين",score:92},{name:"فيني خالد",score:92},{name:"هبه يوسف",score:92},{name:"تارا قادر",score:92},{name:"فمان رمضان",score:92},{name:"عپمان عزالدین",score:92},{name:"پيام حاجي",score:92},{name:"سازان يونس",score:92},{name:"دەریا فرهاد",score:92},{name:"ئالاء عبدالعزیز",score:92},{name:"سیلاف یونس",score:92}];
@@ -234,7 +246,7 @@
     /* ===================== زانیاریێن مامۆستایان ===================== */
     const teachersData = [
         { title: "دەستخۆشی ل قوتابیێن خۆ دکەم کو نمرێن (98 و 100) ئیناین", badge: "مامۆستا: عمر ئەیوب (عەرەبی)", students: omarStudents },
-        { title: "دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند د بابەتێ  بیرکاری دا", badge: "مامۆستا: پەروەر (بیرکاری)", students: parwarStudents },
+        { title: "دەستخۆشی ل قوتابیێن خو دکەم بوو ڤان نمرێن بلند د بابەتێ بیرکاری دا", badge: "مامۆستا: پەروەر (بیرکاری)", students: parwarStudents },
         { title: "دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ ئینگلیزیێدا", badge: "مامۆستا: هاریکار (ئینگلیزی)", students: harikarStudents },
         { title: "دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابەتێ کوردییێدا", badge: "مامۆستا: سەگڤان نعمان (کوردی)", students: segvanStudents },
         { title: "دەستخۆشی ل قوتابیێن خۆ دکەم بوو ئینانا ڤان نمرێن بلند دبابه‌تێ فیزیایێدا", badge: "مامۆستا: هاوکار (فیزیا)", students: hawkarPhysicsStudents }
@@ -295,7 +307,7 @@
         currentScreen = (currentScreen + 1) % allScreens.length;
         allScreens[currentScreen].classList.add('active');
         resetProgressBar();
-    }, 10000);
+    }, 15000); // دەم هاتە گۆڕین بۆ 15000 میلی چرکە (15 چرکە)
 </script>
 
 </body>
